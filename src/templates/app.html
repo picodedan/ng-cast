@@ -1,18 +1,29 @@
 <div id="app container">
   <nav class="navbar">
+    <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <search 
         result="$ctrl.result"
         service="$ctrl.service"
-      ></search>
+      > 
+      </search>
+    </div>
+    <div class="col-md-3">
+      <button 
+        ng-class="$ctrl.autoPlay ? 'btn on' : 'btn off'" 
+        ng-click="$ctrl.toggleAutoPlay()"
+      > 
+        Auto Play {{$ctrl.autoPlay ? 'On' : 'Off'}}
+      </button>
+    </div>
     </div>
   </nav>
   <div class="row">
     <div class="col-md-7">
       <video-player 
-        video="$ctrl.currentVideo" 
-      >
-      </video-player>
+        video="$ctrl.currentVideo"
+        auto-play="$ctrl.autoPlay"
+      />
     </div>
     <div class="col-md-5">
       <video-list 

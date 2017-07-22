@@ -5,7 +5,8 @@ angular.module('video-player')
     this.videos = [];
     this.currentVideo = undefined;
     this.service = youTube;
-    this.autoplay = false;
+    this.autoPlay = false;
+    this.transclude = true;
 
     this.selectVideo = (video) => {
       this.currentVideo = video;
@@ -24,6 +25,10 @@ angular.module('video-player')
 
     this.$onInit = () => {
       this.searchResults('', this.result);
+    };
+
+    this.toggleAutoPlay = () => {
+      this.autoPlay = !this.autoPlay;
     };
   }
 });
