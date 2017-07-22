@@ -6,10 +6,19 @@ angular.module('video-player')
     video: '<'
   },
   controller: function() {
+    this.autoPlay = false;
     this.$onChanges = () => {
       if (this.video) {
-        this.videoUrl = `https://www.youtube.com/embed/${this.video.id.videoId}`;
+        this.videoUrl = `
+          https://www.youtube.com/embed/${this.video.id.videoId}?autoplay=${Number(this.autoPlay)}
+        `;
       }
+      //this.autoPlayClass = this.autoPlay ? 'on' : 'off';
+    };
+    
+    this.toggleAutoPlay = () => {
+      //debugger;
+      this.autoPlay = !this.autoPlay;
     };
   },
 

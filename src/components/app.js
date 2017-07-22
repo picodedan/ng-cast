@@ -4,6 +4,9 @@ angular.module('video-player')
   controller: function (youTube) {
     this.videos = [];
     this.currentVideo = undefined;
+    this.service = youTube;
+    this.autoplay = false;
+
     this.selectVideo = (video) => {
       this.currentVideo = video;
     };

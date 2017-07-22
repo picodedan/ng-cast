@@ -1,3 +1,4 @@
+
 angular.module('video-player')
 .service('youTube', function($http) {
   this.search = (query, callback) => {
@@ -18,6 +19,8 @@ angular.module('video-player')
       console.log(response);
     });
   };
+
+  this.search = _.debounce(this.search, 500);
 });
 
 /*

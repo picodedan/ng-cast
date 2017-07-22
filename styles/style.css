@@ -89,3 +89,9 @@ h5 {
   text-align: center;
   padding: 10px;
 }
+.on {
+  color: red;
+}
+.off {
+  color: blue;
+}

@@ -2,13 +2,13 @@
   <input 
     class="form-control" 
     type="text" 
-    ng-model="$ctrl.input" 
-    ng-keypress="$ctrl.keyPress($event)"
+    ng-model="$ctrl.input"
+    ng-keyup="$ctrl.keyPress()"
   />
   <button 
     class="btn" 
     ng-click="$ctrl.service.search($ctrl.input, $ctrl.result)"
->
+  >
     <span class="glyphicon glyphicon-search"></span>
   </button>
 </div>
