@@ -13,11 +13,8 @@ angular.module('video-player')
         key: window.YOUTUBE_API_KEY
       }
     }).then(function successCallback(response) {
-      console.log('yay!');
-      console.log(response);
       callback(response.data.items);
     }, function errorCallback(response) {
-      console.log('awww');
       console.log(response);
     });
   };

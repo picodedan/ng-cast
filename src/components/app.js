@@ -3,14 +3,24 @@ angular.module('video-player')
   templateUrl: 'src/templates/app.html',
   controller: function (youTube) {
     this.videos = [];
-    this.currentVideo = 'videoObj';
+    this.currentVideo = undefined;
     this.selectVideo = (video) => {
       this.currentVideo = video;
     };
-    this.searchResults = (query) => {
-      youTube.search(query, (videos) => {
-        this.videos = videos;
-      });
+    
+    this.result = (videos) => {
+      this.videos = videos;
+      if (this.videos.length > 0) {
+        this.selectVideo(videos[0]);
+      }
+    };
+      
+    this.searchResults = (query, callback) => {
+      youTube.search(query, callback);
+    };
+
+    this.$onInit = () => {
+      this.searchResults('', this.result);
     };
   }
 });

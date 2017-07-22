@@ -3,13 +3,15 @@ angular.module('video-player')
 .component('search', {
   templateUrl: 'src/templates/search.html',
   bindings: {
-    search: '<'
+    result: '<'
   },
-  controller: function () {
-    this.result = function () {
-      console.log(this.input);
-      this.search(this.input);
-      this.input = '';
+
+  controller: function (youTube) {
+    this.service = youTube;
+    this.keyPress = (event) => {
+      if (event.key === 'Enter') {
+        this.service.search(this.input, this.result);
+      }
     };
   }
 
